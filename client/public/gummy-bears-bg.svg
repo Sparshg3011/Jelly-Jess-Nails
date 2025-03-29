@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#fcf9ff" />
+  
+  <!-- Filter for blur -->
+  <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+  </filter>
+  
+  <!-- Gummy Bears Pattern -->
+  <!-- Red Gummy Bear -->
+  <g transform="translate(100, 100)" opacity="0.6" filter="url(#blur)">
+    <ellipse cx="40" cy="25" rx="35" ry="25" fill="#ff9999" />
+    <ellipse cx="40" cy="80" rx="30" ry="30" fill="#ff9999" />
+    <ellipse cx="15" cy="30" rx="10" ry="12" fill="#ff9999" />
+    <ellipse cx="65" cy="30" rx="10" ry="12" fill="#ff9999" />
+    <ellipse cx="15" cy="80" rx="10" ry="12" fill="#ff9999" />
+    <ellipse cx="65" cy="80" rx="10" ry="12" fill="#ff9999" />
+  </g>
+  
+  <!-- Green Gummy Bear -->
+  <g transform="translate(300, 200)" opacity="0.6" filter="url(#blur)">
+    <ellipse cx="40" cy="25" rx="35" ry="25" fill="#bdffbd" />
+    <ellipse cx="40" cy="80" rx="30" ry="30" fill="#bdffbd" />
+    <ellipse cx="15" cy="30" rx="10" ry="12" fill="#bdffbd" />
+    <ellipse cx="65" cy="30" rx="10" ry="12" fill="#bdffbd" />
+    <ellipse cx="15" cy="80" rx="10" ry="12" fill="#bdffbd" />
+    <ellipse cx="65" cy="80" rx="10" ry="12" fill="#bdffbd" />
+  </g>
+  
+  <!-- Yellow Gummy Bear -->
+  <g transform="translate(500, 100)" opacity="0.6" filter="url(#blur)">
+    <ellipse cx="40" cy="25" rx="35" ry="25" fill="#ffffbd" />
+    <ellipse cx="40" cy="80" rx="30" ry="30" fill="#ffffbd" />
+    <ellipse cx="15" cy="30" rx="10" ry="12" fill="#ffffbd" />
+    <ellipse cx="65" cy="30" rx="10" ry="12" fill="#ffffbd" />
+    <ellipse cx="15" cy="80" rx="10" ry="12" fill="#ffffbd" />
+    <ellipse cx="65" cy="80" rx="10" ry="12" fill="#ffffbd" />
+  </g>
+  
+  <!-- Blue Gummy Bear -->
+  <g transform="translate(700, 250)" opacity="0.6" filter="url(#blur)">
+    <ellipse cx="40" cy="25" rx="35" ry="25" fill="#bde0ff" />
+    <ellipse cx="40" cy="80" rx="30" ry="30" fill="#bde0ff" />
+    <ellipse cx="15" cy="30" rx="10" ry="12" fill="#bde0ff" />
+    <ellipse cx="65" cy="30" rx="10" ry="12" fill="#bde0ff" />
+    <ellipse cx="15" cy="80" rx="10" ry="12" fill="#bde0ff" />
+    <ellipse cx="65" cy="80" rx="10" ry="12" fill="#bde0ff" />
+  </g>
+  
+  <!-- Purple Gummy Bear -->
+  <g transform="translate(900, 150)" opacity="0.6" filter="url(#blur)">
+    <ellipse cx="40" cy="25" rx="35" ry="25" fill="#e0bdff" />
+    <ellipse cx="40" cy="80" rx="30" ry="30" fill="#e0bdff" />
+    <ellipse cx="15" cy="30" rx="10" ry="12" fill="#e0bdff" />
+    <ellipse cx="65" cy="30" rx="10" ry="12" fill="#e0bdff" />
+    <ellipse cx="15" cy="80" rx="10" ry="12" fill="#e0bdff" />
+    <ellipse cx="65" cy="80" rx="10" ry="12" fill="#e0bdff" />
+  </g>
+  
+  <!-- Orange Gummy Bear -->
+  <g transform="translate(200, 350)" opacity="0.6" filter="url(#blur)">
+    <ellipse cx="40" cy="25" rx="35" ry="25" fill="#ffcc99" />
+    <ellipse cx="40" cy="80" rx="30" ry="30" fill="#ffcc99" />
+    <ellipse cx="15" cy="30" rx="10" ry="12" fill="#ffcc99" />
+    <ellipse cx="65" cy="30" rx="10" ry="12" fill="#ffcc99" />
+    <ellipse cx="15" cy="80" rx="10" ry="12" fill="#ffcc99" />
+    <ellipse cx="65" cy="80" rx="10" ry="12" fill="#ffcc99" />
+  </g>
+  
+  <!-- Pink Gummy Bear -->
+  <g transform="translate(500, 400)" opacity="0.6" filter="url(#blur)">
+    <ellipse cx="40" cy="25" rx="35" ry="25" fill="#ff99cc" />
+    <ellipse cx="40" cy="80" rx="30" ry="30" fill="#ff99cc" />
+    <ellipse cx="15" cy="30" rx="10" ry="12" fill="#ff99cc" />
+    <ellipse cx="65" cy="30" rx="10" ry="12" fill="#ff99cc" />
+    <ellipse cx="15" cy="80" rx="10" ry="12" fill="#ff99cc" />
+    <ellipse cx="65" cy="80" rx="10" ry="12" fill="#ff99cc" />
+  </g>
+  
+  <!-- Teal Gummy Bear -->
+  <g transform="translate(800, 450)" opacity="0.6" filter="url(#blur)">
+    <ellipse cx="40" cy="25" rx="35" ry="25" fill="#99ffcc" />
+    <ellipse cx="40" cy="80" rx="30" ry="30" fill="#99ffcc" />
+    <ellipse cx="15" cy="30" rx="10" ry="12" fill="#99ffcc" />
+    <ellipse cx="65" cy="30" rx="10" ry="12" fill="#99ffcc" />
+    <ellipse cx="15" cy="80" rx="10" ry="12" fill="#99ffcc" />
+    <ellipse cx="65" cy="80" rx="10" ry="12" fill="#99ffcc" />
+  </g>
+  
+  <!-- More Scattered Gummy Bears -->
+  <g transform="translate(100, 550)" opacity="0.6" filter="url(#blur)">
+    <ellipse cx="40" cy="25" rx="35" ry="25" fill="#ffbde0" />
+    <ellipse cx="40" cy="80" rx="30" ry="30" fill="#ffbde0" />
+    <ellipse cx="15" cy="30" rx="10" ry="12" fill="#ffbde0" />
+    <ellipse cx="65" cy="30" rx="10" ry="12" fill="#ffbde0" />
+    <ellipse cx="15" cy="80" rx="10" ry="12" fill="#ffbde0" />
+    <ellipse cx="65" cy="80" rx="10" ry="12" fill="#ffbde0" />
+  </g>
+  
+  <g transform="translate(350, 600)" opacity="0.6" filter="url(#blur)">
+    <ellipse cx="40" cy="25" rx="35" ry="25" fill="#e0ffbd" />
+    <ellipse cx="40" cy="80" rx="30" ry="30" fill="#e0ffbd" />
+    <ellipse cx="15" cy="30" rx="10" ry="12" fill="#e0ffbd" />
+    <ellipse cx="65" cy="30" rx="10" ry="12" fill="#e0ffbd" />
+    <ellipse cx="15" cy="80" rx="10" ry="12" fill="#e0ffbd" />
+    <ellipse cx="65" cy="80" rx="10" ry="12" fill="#e0ffbd" />
+  </g>
+  
+  <g transform="translate(650, 650)" opacity="0.6" filter="url(#blur)">
+    <ellipse cx="40" cy="25" rx="35" ry="25" fill="#ccffff" />
+    <ellipse cx="40" cy="80" rx="30" ry="30" fill="#ccffff" />
+    <ellipse cx="15" cy="30" rx="10" ry="12" fill="#ccffff" />
+    <ellipse cx="65" cy="30" rx="10" ry="12" fill="#ccffff" />
+    <ellipse cx="15" cy="80" rx="10" ry="12" fill="#ccffff" />
+    <ellipse cx="65" cy="80" rx="10" ry="12" fill="#ccffff" />
+  </g>
+  
+  <g transform="translate(950, 550)" opacity="0.6" filter="url(#blur)">
+    <ellipse cx="40" cy="25" rx="35" ry="25" fill="#ffccbd" />
+    <ellipse cx="40" cy="80" rx="30" ry="30" fill="#ffccbd" />
+    <ellipse cx="15" cy="30" rx="10" ry="12" fill="#ffccbd" />
+    <ellipse cx="65" cy="30" rx="10" ry="12" fill="#ffccbd" />
+    <ellipse cx="15" cy="80" rx="10" ry="12" fill="#ffccbd" />
+    <ellipse cx="65" cy="80" rx="10" ry="12" fill="#ffccbd" />
+  </g>
+</svg>

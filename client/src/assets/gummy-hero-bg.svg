@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1600" height="900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pastel gradient background -->
+  <defs>
+    <linearGradient id="pastelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffcae5;stop-opacity:0.8" />
+      <stop offset="25%" style="stop-color:#fdffb6;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#caffbf;stop-opacity:0.8" />
+      <stop offset="75%" style="stop-color:#a0c4ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#ffc6ff;stop-opacity:0.8" />
+    </linearGradient>
+    
+    <!-- Filter for blur effect -->
+    <filter id="blur" x="-5%" y="-5%" width="110%" height="110%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="25" />
+    </filter>
+  </defs>
+  
+  <!-- Background with blur -->
+  <rect width="100%" height="100%" fill="#ffffff" />
+  
+  <!-- Gummy Bears Pattern (stylized and blurred) -->
+  <!-- Gummy Bear Silhouettes -->
+  <g filter="url(#blur)">
+    <!-- Larger Gummy Bear Shapes -->
+    <ellipse cx="200" cy="150" rx="120" ry="100" fill="#ffcae5" opacity="0.5" />
+    <ellipse cx="500" cy="250" rx="150" ry="130" fill="#fdffb6" opacity="0.5" />
+    <ellipse cx="800" cy="150" rx="130" ry="110" fill="#caffbf" opacity="0.5" />
+    <ellipse cx="1100" cy="250" rx="140" ry="120" fill="#a0c4ff" opacity="0.5" />
+    <ellipse cx="1400" cy="150" rx="120" ry="100" fill="#ffc6ff" opacity="0.5" />
+    
+    <ellipse cx="200" cy="550" rx="150" ry="130" fill="#ffc6ff" opacity="0.5" />
+    <ellipse cx="500" cy="650" rx="140" ry="120" fill="#a0c4ff" opacity="0.5" />
+    <ellipse cx="800" cy="550" rx="120" ry="100" fill="#caffbf" opacity="0.5" />
+    <ellipse cx="1100" cy="650" rx="150" ry="130" fill="#fdffb6" opacity="0.5" />
+    <ellipse cx="1400" cy="550" rx="130" ry="110" fill="#ffcae5" opacity="0.5" />
+    
+    <!-- Smaller Scattered Gummy Bears -->
+    <ellipse cx="350" cy="400" rx="80" ry="70" fill="#ffcae5" opacity="0.5" />
+    <ellipse cx="650" cy="400" rx="70" ry="60" fill="#fdffb6" opacity="0.5" />
+    <ellipse cx="950" cy="400" rx="75" ry="65" fill="#caffbf" opacity="0.5" />
+    <ellipse cx="1250" cy="400" rx="80" ry="70" fill="#a0c4ff" opacity="0.5" />
+  </g>
+  
+  <!-- Overlay with gradient -->
+  <rect width="100%" height="100%" fill="url(#pastelGradient)" opacity="0.3" />
+</svg>

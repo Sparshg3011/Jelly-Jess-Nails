@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxe Nails | Premium Nail Artistry</title>
+    <meta name="description" content="Discover premium nail artistry that transforms your hands into wearable art at Luxe Nails." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* Custom font classes to be used with Tailwind */
+      .font-script {
+        font-family: 'Great Vibes', cursive;
+      }
+      
+      .font-display {
+        font-family: 'Playfair Display', serif;
+      }
+      
+      .font-body {
+        font-family: 'Montserrat', sans-serif;
+      }
+      
+      /* Animation classes */
+      @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+      
+      @keyframes slideUp {
+        0% { transform: translateY(20px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+      }
+      
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-in-out;
+      }
+      
+      .animate-slide-up {
+        animation: slideUp 0.5s ease-in-out;
+      }
+      
+      /* Fancy border */
+      .fancy-border {
+        position: relative;
+      }
+      
+      .fancy-border::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100px;
+        height: 2px;
+        background-color: hsl(47, 57%, 52%); /* Accent color */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
