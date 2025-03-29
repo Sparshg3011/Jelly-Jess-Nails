@@ -37,3 +37,4 @@ For instructions on setting up Google Authentication, please see [README-GOOGLE-
 
 MIT
 # Jelly-Jess-Nails
+# Jelly-Jess-Nails
