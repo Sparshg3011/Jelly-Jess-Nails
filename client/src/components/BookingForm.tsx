@@ -8,7 +8,7 @@ import { format } from 'date-fns';
 import { formatTime, formatCurrency } from '@/lib/utils';
 import { insertBookingSchema } from '@shared/schema';
 import { queryClient, apiRequest } from '@/lib/queryClient';
-import { CalendarIcon, Loader2, AlertTriangle } from 'lucide-react';
+import { CalendarIcon, Loader2, AlertTriangle, LogIn } from 'lucide-react';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -19,6 +19,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
 import { Checkbox } from '@/components/ui/checkbox';
+import { useLocation } from 'wouter';
 
 // Extended schema with validation and policy acceptance
 const bookingFormSchema = insertBookingSchema.extend({
@@ -49,7 +50,10 @@ interface BookingFormProps {
 export default function BookingForm({ standalone = false }: BookingFormProps) {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
   const [selectedSlot, setSelectedSlot] = useState<number | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [isCheckingAuth, setIsCheckingAuth] = useState<boolean>(true);
   
+  const [, setLocation] = useLocation();
   const { toast } = useToast();
   
   // Get services
@@ -105,6 +109,14 @@ export default function BookingForm({ standalone = false }: BookingFormProps) {
   const createBooking = useMutation({
     mutationFn: async (data: InsertBooking) => {
       const res = await apiRequest("POST", "/api/bookings", data);
+      if (!res.ok) {
+        const errorData = await res.json();
+        // If unauthorized, redirect to login
+        if (res.status === 401) {
+          throw new Error("Authentication required to book an appointment.");
+        }
+        throw new Error(errorData.message || "Failed to book appointment");
+      }
       return await res.json();
     },
     onSuccess: () => {
@@ -117,11 +129,21 @@ export default function BookingForm({ standalone = false }: BookingFormProps) {
       setSelectedSlot(null);
     },
     onError: (error: Error) => {
-      toast({
-        title: "Booking failed",
-        description: error.message,
-        variant: "destructive",
-      });
+      if (error.message.includes("Authentication required")) {
+        toast({
+          title: "Login Required",
+          description: "You must be logged in to book an appointment.",
+          variant: "destructive",
+        });
+        // Navigate to login
+        setTimeout(() => setLocation('/auth'), 1500);
+      } else {
+        toast({
+          title: "Booking failed",
+          description: error.message,
+          variant: "destructive",
+        });
+      }
     }
   });
   
@@ -132,8 +154,19 @@ export default function BookingForm({ standalone = false }: BookingFormProps) {
     }
   }, [selectedSlot, form]);
   
-  // Handle form submission - direct booking without payment
+  // Handle form submission
   const onSubmit = (data: BookingFormValues) => {
+    // Check if user is authenticated first
+    if (!isAuthenticated) {
+      toast({
+        title: "Login Required",
+        description: "You must be logged in to book an appointment.",
+        variant: "destructive",
+      });
+      setTimeout(() => setLocation('/auth'), 1500);
+      return;
+    }
+    
     // Validate required fields before submission
     if (!data.slotId || data.slotId === 0) {
       toast({
@@ -173,6 +206,28 @@ export default function BookingForm({ standalone = false }: BookingFormProps) {
   // Get selected service price for payment
   const selectedService = services?.find(service => service.id === form.getValues().serviceId);
   const bookingFee = 15; // £15 booking fee
+  
+  // Show login prompt if not authenticated
+  if (!isCheckingAuth && !isAuthenticated) {
+    return (
+      <section className={cn("py-20", !standalone && "pt-0")}>
+        <div className={cn(standalone ? "container mx-auto px-4" : "")}>
+          <Card className="max-w-md mx-auto p-8 text-center">
+            <div className="flex flex-col items-center gap-4">
+              <LogIn className="h-12 w-12 text-primary" />
+              <h3 className="text-2xl font-bold">Login Required</h3>
+              <p className="text-muted-foreground mb-4">
+                You need to be logged in to book an appointment. Please login or create an account to continue.
+              </p>
+              <Button onClick={() => setLocation('/auth')} className="w-full">
+                Login or Sign Up
+              </Button>
+            </div>
+          </Card>
+        </div>
+      </section>
+    );
+  }
   
   return (
     <section className={cn("py-20", !standalone && "pt-0")}>

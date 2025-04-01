@@ -341,6 +341,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
   
   app.post("/api/bookings", async (req, res) => {
+    // Require authentication to book an appointment
+    if (!req.isAuthenticated()) {
+      return res.status(401).json({ message: "You must be logged in to book an appointment" });
+    }
+    
     try {
       const validatedData = insertBookingSchema.parse(req.body);
       

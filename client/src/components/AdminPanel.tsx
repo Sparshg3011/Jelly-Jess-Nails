@@ -1,6 +1,6 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef, useMemo, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { useQuery, useMutation } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
@@ -21,16 +21,32 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { queryClient, apiRequest } from '@/lib/queryClient';
 import { z } from 'zod';
 import { cn, formatCurrency, formatDate, formatTime } from '@/lib/utils';
-import { Booking, Service, GalleryItem, WaitlistEntry, ContactMessage, BookingSlot } from '@shared/schema';
+import { Booking, Service, GalleryItem, WaitlistEntry, ContactMessage, BookingSlot, ProductCategory, Product } from '@shared/schema';
 import { insertServiceSchema, insertGalleryItemSchema, insertBookingSlotSchema } from '@shared/schema';
 import { Check, Edit, Loader2, Plus, Trash2, X, CalendarIcon, Star, FolderPlus, ImagePlus, UploadCloud, MessageSquare, Eye, User, Mail, Phone, ChevronDown, Filter, ShoppingBag } from 'lucide-react';
 import BookingCalendar from './BookingCalendar';
 import { format } from 'date-fns';
 import ProductForm from './ProductForm';
 
+// Define ServiceCategory type
+interface ServiceCategory {
+  id: number;
+  name: string;
+  description: string;
+  createdAt?: Date;
+}
+
 export default function AdminPanel() {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState('bookings');
+  
+  // Get products in low stock (assuming inStock is a boolean)
+  const productsOutOfStock = products?.filter(p => !p.inStock)?.length || 0;
+  
+  // Load service categories
+  const { data: serviceCategories, isLoading: isCategoriesLoading, refetch: refetchCategories } = useQuery<ServiceCategory[]>({
+    queryKey: ['/api/categories/services'],
+  });
   
   return (
     <Card className="max-w-6xl mx-auto">

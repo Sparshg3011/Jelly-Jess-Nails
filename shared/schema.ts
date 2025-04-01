@@ -166,6 +166,17 @@ export const insertContactMessageSchema = createInsertSchema(contactMessages).pi
   message: true,
 });
 
+// Gallery categories model
+export const galleryCategories = pgTable("gallery_categories", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull().unique(),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+export const insertGalleryCategorySchema = createInsertSchema(galleryCategories).pick({
+  name: true,
+});
+
 // ORM Type exports
 export type User = typeof users.$inferSelect;
 export type InsertUser = z.infer<typeof insertUserSchema>;
